@@ -5,9 +5,8 @@ import VideoList from './VideoList'
 
 const App = () => (
     <div>
-        the day after tomorrow!
         <Header />
-            <VideoList />
+        <VideoList />
         <Footer />
     </div>
 )

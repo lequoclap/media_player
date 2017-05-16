@@ -1,20 +1,24 @@
 import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
+import {addVideo} from '../actions'
 
-const Header = () => {
+const Header = ({addVideo}) => {
     return (
         <div>
-            <form>
+            <form onSubmit={e =>{
+                    e.preventDefault();
+                    addVideo(e)
+                }}>
                 <div className="row card">
                     <div className="col s9">
-                    <input placeholder="Enter youtube URL" id="add_url" className="center" />
+                    <input placeholder="Enter youtube URL" name="media_url" className="center" />
                     </div>
                     <div className="col s2">
                         <button className="right btn-floating btn-large waves-effect waves-light red"><i className="material-icons">add</i></button>
                     </div>
-                        <div class="card-content">
-                <p className="col s12 center-align"> enjoy your time!</p>
-                </div>
+                    <div class="card-content">
+                        <p>something to write</p>
+                    </div>
                 </div>
             </form>
         </div>
@@ -28,8 +32,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        dispatch1: () => {
-            dispatch()
+        addVideo: (evt) => {
+            let url = evt.target.querySelector('input[name="media_url"]').value
+            dispatch(addVideo(url))
         }
     }
 }

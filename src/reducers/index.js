@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
 import videos from './videos';
 
-
-
-const qaApp = combineReducers({
+const app = combineReducers({
     videos,
 })
 
-export default qaApp;
+export default app;
